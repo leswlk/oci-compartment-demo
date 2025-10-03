@@ -863,6 +863,7 @@ health-viewer-1@example.com
 edu-admin-1@example.com
 ...
 ```
+This could be tedious using the OCI CLI. Worries alleviated via @therealcmj on GitHub through the use of his fakeUsers script. Thanks, Chris!
 
 #### Step 2.3: Add Users to Groups
 Assign each test user to their respective group.

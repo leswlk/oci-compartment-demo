@@ -66,7 +66,7 @@ Root Compartment (Tenancy)
 ```
 
 ### Architecture Diagram
-![Architecture Diagram](./architecture/govtech-iam-architecture.png)
+![Architecture Diagram](./diagrams/compartment_architecture.md)
 
 **Design Rationale:**
 - **Parent Compartment**: Centralizes governance policies

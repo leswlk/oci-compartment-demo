@@ -220,15 +220,16 @@ Repeat for Education and Infrastructure departments.
 
 #### Step 3.2: Developer Policies
 **Policy Name**: `Health-Developers-Policy`  
-**Compartment**: Applied at `Health-Dept` level
+**Compartment**: Applied at `HealthDept` level
 
 ```
-Allow group HealthDevelopers to manage instance-family in compartment Health-Dept:Health-Dev
-Allow group HealthDevelopers to use virtual-network-family in compartment Health-Dept:Health-Dev
-Allow group HealthDevelopers to manage volume-family in compartment Health-Dept:Health-Dev
-Allow group HealthDevelopers to manage object-family in compartment Health-Dept:Health-Dev
-Allow group HealthDevelopers to inspect all-resources in compartment Health-Dept:Health-Prod
+Allow group HealthDevelopers to manage instance-family in compartment HealthDept
+Allow group HealthDevelopers to use virtual-network-family in compartment HealthDept
+Allow group HealthDevelopers to manage volume-family in compartment HealthDept
+Allow group HealthDevelopers to manage object-family in compartment HealthDept
+Allow group HealthDevelopers to inspect all-resources in compartment HealthDept
 ```
+![Screenshot](./screenshots/health_developers_policy.jpg)
 
 **Key Points:**
 - Developers can **manage** resources in Dev

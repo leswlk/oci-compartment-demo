@@ -210,12 +210,12 @@ Assign each test user to their respective group. Example screenshot below for He
 ```
 Allow group HealthAdmins to manage all-resources in compartment Health-Dept
 ```
-![Screenshot](./screenshots/health_admins_policy.jpg)
+![Screenshot](./screenshots/policies/health_admins_policy.jpg)
 
 Repeat for Education and Infrastructure departments.
 
-![Screenshot](./screenshots/education_admins_policy.jpg)
-![Screenshot](./screenshots/infrastructure_admins_policy.jpg)
+![Screenshot](./screenshots/policies/education_admins_policy.jpg)
+![Screenshot](./screenshots/policies/infrastructure_admins_policy.jpg)
 
 
 #### Step 3.2: Developer Policies
@@ -229,7 +229,7 @@ Allow group HealthDevelopers to manage volume-family in compartment HealthDept
 Allow group HealthDevelopers to manage object-family in compartment HealthDept
 Allow group HealthDevelopers to inspect all-resources in compartment HealthDept
 ```
-![Screenshot](./screenshots/health_developers_policy.jpg)
+![Screenshot](./screenshots/policies/health_developers_policy.jpg)
 
 **Key Points:**
 - Developers can **manage** resources in Dev
@@ -244,7 +244,7 @@ Allow group HealthViewers to inspect all-resources in compartment Health-Dept
 Allow group HealthViewers to read all-resources in compartment Health-Dept
 ```
 
-![Screenshot](./screenshots/health_viewers_policy.jpg)
+![Screenshot](./screenshots/policies/health_viewers_policy.jpg)
 
 #### Step 3.4: Cross-Department Policies
 **Policy Name**: `Budget-Analysts-Policy`  
@@ -255,7 +255,7 @@ Allow group BudgetAnalysts to read usage-reports in compartment GovTech-Parent
 Allow group BudgetAnalysts to inspect compartments in compartment GovTech-Parent
 Allow group BudgetAnalysts to read usage-budgets in compartment GovTech-Parent
 ```
-![Screenshot](./screenshots/budget_analysts_policy.jpg)
+![Screenshot](./screenshots/policies/budget_analysts_policy.jpg)
 
 **Policy Name**: `Security-Auditors-Policy`  
 **Compartment**: Applied at `GovTech-Parent` level
@@ -265,7 +265,7 @@ Allow group SecurityAuditors to inspect all-resources in compartment GovTech-Par
 Allow group SecurityAuditors to read audit-events in compartment GovTech-Parent
 Allow group SecurityAuditors to read policies in tenancy
 ```
-![Screenshot](./screenshots/security_auditors_policy.jpg)
+![Screenshot](./screenshots/policies/security_auditors_policy.jpg)
 
 #### Step 3.5: Dynamic Groups
 **Dynamic Group Name**: `Health-Compute-Instances`
@@ -274,7 +274,7 @@ Allow group SecurityAuditors to read policies in tenancy
 ```
 All {instance.compartment.id = '<Health-Dept-OCID>'}
 ```
-![Screenshot](./screenshots/health_compute_instances.jpg)
+![Screenshot](./screenshots/policies/health_compute_instances.jpg)
 
 **Policy for Dynamic Group**:
 ```
@@ -319,7 +319,12 @@ Configure automatic tagging for each compartment:
 
 Repeat for all compartments.
 
-**Screenshot Location**: `./screenshots/03-tag-namespace.png`
+![Screenshot](./screenshots/namespaces/health_developers_namespace.jpg)
+![Screenshot](./screenshots/namespaces/health_production_namespace.jpg)
+![Screenshot](./screenshots/namespaces/education_development_namespace.jpg)
+![Screenshot](./screenshots/namespaces/education_production_namespace.jpg)
+![Screenshot](./screenshots/namespaces/infrastructure_development_namespace.jpg)
+![Screenshot](./screenshots/namespaces/infrastructure_production_namespace.jpg)
 
 ---
 

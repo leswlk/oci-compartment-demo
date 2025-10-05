@@ -244,6 +244,8 @@ Allow group HealthViewers to inspect all-resources in compartment Health-Dept
 Allow group HealthViewers to read all-resources in compartment Health-Dept
 ```
 
+![Screenshot](./screenshots/health_viewers_policy.jpg)
+
 #### Step 3.4: Cross-Department Policies
 **Policy Name**: `Budget-Analysts-Policy`  
 **Compartment**: Applied at `GovTech-Parent` level
@@ -253,6 +255,7 @@ Allow group BudgetAnalysts to read usage-reports in compartment GovTech-Parent
 Allow group BudgetAnalysts to inspect compartments in compartment GovTech-Parent
 Allow group BudgetAnalysts to read usage-budgets in compartment GovTech-Parent
 ```
+![Screenshot](./screenshots/budget_analysts_policy.jpg)
 
 **Policy Name**: `Security-Auditors-Policy`  
 **Compartment**: Applied at `GovTech-Parent` level
@@ -262,6 +265,7 @@ Allow group SecurityAuditors to inspect all-resources in compartment GovTech-Par
 Allow group SecurityAuditors to read audit-events in compartment GovTech-Parent
 Allow group SecurityAuditors to read policies in tenancy
 ```
+![Screenshot](./screenshots/security_auditors_policy.jpg)
 
 #### Step 3.5: Dynamic Groups
 **Dynamic Group Name**: `Health-Compute-Instances`
@@ -270,6 +274,7 @@ Allow group SecurityAuditors to read policies in tenancy
 ```
 All {instance.compartment.id = '<Health-Dept-OCID>'}
 ```
+![Screenshot](./screenshots/health_compute_instances.jpg)
 
 **Policy for Dynamic Group**:
 ```

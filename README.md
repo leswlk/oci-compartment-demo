@@ -291,7 +291,7 @@ Repeat for other departments.
 ### Phase 4: Tagging Strategy
 
 #### Step 4.1: Create Tag Namespace
-Navigate to: `Governance → Tag Namespaces`
+Navigate to: `Identity & Security → Tags`
 
 **Namespace Name**: `CostCenter`  
 **Description**: Cost allocation and tracking tags

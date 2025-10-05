@@ -210,8 +210,13 @@ Assign each test user to their respective group. Example screenshot below for He
 ```
 Allow group HealthAdmins to manage all-resources in compartment Health-Dept
 ```
+![Screenshot](./screenshots/health_admins_policy.jpg)
 
 Repeat for Education and Infrastructure departments.
+
+![Screenshot](./screenshots/education_admins_policy.jpg)
+![Screenshot](./screenshots/infrastructure_admins_policy.jpg)
+
 
 #### Step 3.2: Developer Policies
 **Policy Name**: `Health-Developers-Policy`  

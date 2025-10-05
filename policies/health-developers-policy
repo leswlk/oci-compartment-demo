@@ -1,0 +1,6 @@
+Allow group HealthDevelopers to manage instance-family in compartment HealthDept
+Allow group HealthDevelopers to manage instance-family in compartment HealthDept
+Allow group HealthDevelopers to use virtual-network-family in compartment HealthDept
+Allow group HealthDevelopers to manage volume-family in compartment HealthDept
+Allow group HealthDevelopers to manage object-family in compartment HealthDept
+Allow group HealthDevelopers to inspect all-resources in compartment HealthDept

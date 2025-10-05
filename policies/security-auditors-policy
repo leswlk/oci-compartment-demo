@@ -1,0 +1,3 @@
+Allow group SecurityAuditors to inspect all-resources in compartment GovTechParent
+Allow group SecurityAuditors to read audit-events in compartment GovTechParent
+Allow group SecurityAuditors to read policies in tenancy

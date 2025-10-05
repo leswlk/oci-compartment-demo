@@ -1,0 +1,3 @@
+Allow group BudgetAnalysts to read usage-reports in compartment GovTechParent
+Allow group BudgetAnalysts to inspect compartments in compartment GovTechParent
+Allow group BudgetAnalysts to read usage-budgets in compartment GovTechParent

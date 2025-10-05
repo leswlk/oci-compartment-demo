@@ -66,7 +66,7 @@ Root Compartment (Tenancy)
 ```
 
 ### Architecture Diagram
-![Architecture Diagram](./diagrams/compartment_architecture.md)
+![Architecture Diagram](./diagrams/compartment_architecture.drawio.svg)
 
 **Design Rationale:**
 - **Parent Compartment**: Centralizes governance policies

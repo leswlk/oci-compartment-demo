@@ -156,7 +156,7 @@ For **each** department, create:
 - `{Department}-Dev` - Development environment
 - `{Department}-Prod` - Production environment
 
-**Screenshot Location**: `./screenshots/01-compartment-structure.png`
+![Screenshot](./screenshots/dept_compartments.png.jpg)
 
 ---
 

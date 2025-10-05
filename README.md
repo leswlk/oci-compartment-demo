@@ -195,9 +195,9 @@ edu-admin-1@example.com
 ```
 
 #### Step 2.3: Add Users to Groups
-Assign each test user to their respective group.
+Assign each test user to their respective group. Example screenshot below for HealthAdmin users being added:
 
-**Screenshot Location**: `./screenshots/02-iam-groups.png`
+![Screenshot](./screenshots/health_admin_group.jpg)
 
 ---
 

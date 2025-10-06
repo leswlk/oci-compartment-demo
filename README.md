@@ -303,8 +303,8 @@ Create the following tags within `CostCenter` namespace:
 |---------|-------------|--------------|
 | `Department` | Owning department | Health, Education, Infrastructure |
 | `Environment` | Deployment environment | Dev, Prod |
-| `Project` | Project identifier | Free text |
-| `Owner` | Resource owner email | Free text |
+| `Project` | Project identifier | Unassigned |
+| `Owner` | Resource owner email | Unassigned |
 
 #### Step 4.3: Set Tag Defaults
 Configure automatic tagging for each compartment:

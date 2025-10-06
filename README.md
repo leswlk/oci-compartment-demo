@@ -274,7 +274,7 @@ Allow group SecurityAuditors to read policies in tenancy
 ```
 All {instance.compartment.id = '<Health-Dept-OCID>'}
 ```
-![Screenshot](./screenshots/policies/health_compute_instances.jpg)
+![Screenshot](./screenshots/instances/health_compute_instances.jpg)
 
 **Policy for Dynamic Group**:
 ```

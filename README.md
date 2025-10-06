@@ -333,56 +333,15 @@ Repeat for all compartments.
 #### Deploy for Health Department
 
 **5.1: Create VCN**
-```
-Name: health-vcn
-CIDR Block: 10.0.0.0/16
-Compartment: Health-Dev
-Tags: 
-  - CostCenter.Department: Health
-  - CostCenter.Environment: Dev
-  - CostCenter.Project: Health-Network
-  - CostCenter.Owner: health-admin-1@example.com
-```
 
-**5.2: Create Compute Instance**
-```
-Name: health-app-server
-Shape: VM.Standard.E2.1.Micro (Always Free)
-Image: Oracle Linux 8
-VCN: health-vcn
-Subnet: Public Subnet
-Compartment: Health-Dev
-Tags: (same as above)
-```
-
-**5.3: Create Object Storage Bucket**
-```
-Name: health-app-data
-Compartment: Health-Dev
-Tags: (same as above)
-```
-
-**5.4: Create Block Volume**
-```
-Name: health-data-volume
-Size: 50 GB
-Compartment: Health-Dev
-Tags: (same as above)
-```
-
-#### Repeat for Education and Infrastructure
-Deploy the same resource types for:
-- Education-Dev
-- Infrastructure-Dev
-
-**Screenshot Location**: `./screenshots/04-deployed-resources.png`
+**NOTE** An attempt was made to launch a sample resource in the Health compartment using the VM.Standard.A1.Flex shape. Due to persistent "Out of Capacity" errors, the resource deployment could not be completed at this time. This portion of the project will be updated when resources become available. If the instance had launched, we'd login as an user from the HealthAdmins group and attempt to view resources in the EducationDept compartment. The result would be a successful "Authorization Failed" message, proving that the policies written in this step are functioning correctly. 
 
 ---
 
 ### Phase 6: Budget & Cost Tracking
 
-#### Step 6.1: Create Department Budgets
-Navigate to: `Governance → Budgets`
+
+Navigate to: `Billing & Cost Management → Budgets`
 
 **Budget Configuration (Health Department)**:
 ```
@@ -394,16 +353,7 @@ Alert Recipients: health-admin-1@example.com
 ```
 
 Create similar budgets for Education ($10) and Infrastructure ($10).
-
-#### Step 6.2: Generate Cost Report
-Navigate to: `Governance → Cost Analysis`
-
-**Create Custom Report**:
-- Filter by: `Tag - CostCenter.Department`
-- Group by: Department, Environment
-- Date Range: Last 30 days
-
-**Screenshot Location**: `./screenshots/05-cost-analysis.png`
+![Screenshot](./screenshots/department_budgets.jpg)
 
 ---
 
@@ -457,100 +407,6 @@ Navigate to: `Governance → Cost Analysis`
 
 ---
 
-### Test Scenario 4: Viewer Read-Only Access
-**Objective**: Verify viewers cannot modify resources
-
-**Steps**:
-1. Log in as `health-viewer-1@example.com`
-2. View Health-Dev compute instances
-3. Attempt to stop an instance
-4. Attempt to create a new instance
-
-**Expected Result**: 
-- Can view resources
-- Cannot modify resources
-
-**Screenshot Location**: `./validation/04-viewer-readonly.png`
-
----
-
-### Test Scenario 5: Dynamic Group Access
-**Objective**: Verify compute instances can access Object Storage via dynamic group
-
-**Steps**:
-1. SSH into `health-app-server`
-2. Install OCI CLI on the instance
-3. Configure instance principal authentication
-4. Attempt to list objects in `health-app-data` bucket
-5. Attempt to upload a test file
-
-**Commands**:
-```bash
-# On the instance
-oci os object list --bucket-name health-app-data --auth instance_principal
-echo "test data" > test.txt
-oci os object put --bucket-name health-app-data --file test.txt --auth instance_principal
-```
-
-**Expected Result**: Both operations succeed
-
-**Screenshot Location**: `./validation/05-dynamic-group-access.png`
-
----
-
-### Test Scenario 6: Budget Alert Validation
-**Objective**: Verify budget alerts are triggered
-
-**Steps**:
-1. Create resources to approach budget threshold
-2. Check for budget alert email
-3. View budget status in console
-
-**Expected Result**: Alert email received at 80% threshold
-
-**Screenshot Location**: `./validation/06-budget-alert.png`
-
----
-
-### Test Scenario 7: Audit Log Review
-**Objective**: Verify all access attempts are logged
-
-**Steps**:
-1. Navigate to: `Observability → Audit`
-2. Filter by:
-   - Event Type: `com.oraclecloud.identitycontrolplane.createinstance`
-   - Date: Last 7 days
-3. Review both successful and failed attempts
-4. Verify failed cross-department access is logged
-
-**Screenshot Location**: `./validation/07-audit-logs.png`
-
----
-
-## Cost Analysis
-
-### Monthly Cost Breakdown (Estimated)
-
-| Department | Dev Environment | Prod Environment | Total |
-|------------|-----------------|------------------|-------|
-| Health | $0.50 | $0.00 | $0.50 |
-| Education | $0.50 | $0.00 | $0.50 |
-| Infrastructure | $0.50 | $0.00 | $0.50 |
-| **Total** | | | **$1.50/month** |
-
-**Cost Optimization Notes**:
-- Using Always Free tier compute shapes
-- Object Storage charges minimal for small data
-- No data transfer costs (internal traffic)
-- Budgets set intentionally low for alerting demonstration
-
-### Cost Report by Tag
-**Group By**: `CostCenter.Department`
-
-See detailed report: `./cost-analysis/monthly-cost-report.png`
-
----
-
 ##  Security Considerations
 
 ### Implemented Security Best Practices
@@ -584,51 +440,6 @@ See detailed report: `./cost-analysis/monthly-cost-report.png`
 - [ ] Implement federation with identity provider
 - [ ] Add DDoS protection policies
 
----
-
-## 🎓 Key Learnings
-
-### OCI Architect Associate Exam Alignment
-
-This project directly addresses these exam domains:
-
-**1. Identity and Access Management (15-20%)**
--  Compartment design and hierarchy
--  User, group, and policy management
--  Dynamic groups and instance principals
--  Policy syntax and inheritance
-
-**2. Governance and Administration**
--  Tagging strategies
--  Cost tracking and budgets
--  Audit logging and compliance
-
-**3. Networking**
--  VCN creation and configuration
--  Subnet design
-
-**4. Compute**
-- Instance deployment with IAM
--  Block volume management
-
-### Technical Insights
-
-**What Worked Well**:
-- Tag defaults automated compliance
-- Dynamic groups eliminated credential management
-- Compartment hierarchy simplified policy management
-
-**Challenges Faced**:
-- Policy syntax can be tricky - test incrementally
-- Tag propagation isn't instant - wait 1-2 minutes
-- Dynamic group rule testing requires patience
-
-**Best Practices Discovered**:
-1. Always create policies at the compartment level first
-2. Use descriptive naming conventions for all resources
-3. Document OCIDs for compartments immediately
-4. Test negative scenarios as thoroughly as positive ones
-5. Budget alerts should be set lower than you think
 
 ---
 
